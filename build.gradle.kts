@@ -30,6 +30,15 @@ dependencies {
 
     // Kotlin
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+
+    // Exposed
+    implementation("org.jetbrains.exposed:exposed-core:0.55.0")
+    implementation("org.jetbrains.exposed:exposed-jdbc:0.55.0")
+    implementation("org.jetbrains.exposed:exposed-dao:0.55.0")
+
+    implementation("org.xerial:sqlite-jdbc:3.46.0.0")
+
+    implementation("com.zaxxer:HikariCP:5.1.0")
 }
 
 tasks {
