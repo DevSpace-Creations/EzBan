@@ -14,8 +14,16 @@ object DatabaseManager {
      * @return the configured DataSource instance for the database connection.
      */
     fun setupDatabase(path: String = "ezban.db"): DataSource {
-        val file = File(path)
-        file.parentFile.mkdirs()
+        val file = File(path).absoluteFile
+
+        val parentFile = file.parentFile
+        if (parentFile != null) {
+            parentFile.mkdirs()
+            println("Directory created and verified: ${parentFile.absolutePath}")
+        }
+
+        println("Database path: ${file.absolutePath}")
+        file.parentFile?.mkdirs()
 
         val hikariConfig = HikariConfig().apply {
             jdbcUrl = "jdbc:sqlite:$path"
